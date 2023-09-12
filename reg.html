@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html lang="cs"><head>
+<script>
+    Object.defineProperty(window, 'gl_lang_code', {writable:false, value:'cs'});
+    Object.defineProperty(window, 'gl_lang', {writable:false, value:'0'});
+    Object.defineProperty(window, 'gl_debug', {writable:false, value:false});
+    Object.defineProperty(window, 'gl_url_www', {writable:false, value:'https://www.vut.cz/'});
+    Object.defineProperty(window, 'gl_cookie_help_status', {writable:false, value:'t2_help_status'});
+    Object.defineProperty(window, 'gl_perid', {writable:false, value:250512});
+    Object.defineProperty(window, 'gl_upduid', {writable:false, value:250512});
+    Object.defineProperty(window, 'jstr', {
+        writable: false,
+        value: function (cs, en) {
+            cs = (typeof cs == 'string' ? cs : (cs && cs.toString ? cs.toString() : '')).trim().replace(/\s+/, ' ');
+            return cs;
+        }
+    });
+</script>
+    <link media="screen" rel="stylesheet" type="text/css" href="/i/studis/css/loader.css" />
+
+<script>try{eval('{let y=async (x=0)=>x**x; y.a??=(null??null)?.[null]??class{#x=1_0n};}')}catch(e){document.write('<div class="alert alert-warning"><div class="alert-icon"><span class="icon-notification2" aria-hidden="true"></span></div><div class="alert-text"><div>Používáte starou verzi internetového prohlížeče.<br>Některé funkce nemusí být podporovány.<br><br>Aktualizujte, prosím, svůj prohlížeč, nebo si nainstalujte některý z moderních prohlížečů  <a href="http://www.mozilla.org/firefox/new/" target="_blank">Firefox</a>,  <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>  nebo  <a href="https://www.opera.com/browsers/opera" target="_blank">Opera</a>.<br>Můžete použít prohlížeč Edge, který je součástí systému Windows.</div></div></div>');};
+    </script>
+        <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCCFFS');</script>
+    <!-- End Google Tag Manager -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Cache-control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta name="author" content="CVIS VUT v Brně" />
+<title>Registrace vyučování</title>
+<link rel="shortcut icon" href="/i/www_base/img/favicon_ostra.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/i/images/apple-touch-icon-180x180.png" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+<!--<link rel="stylesheet" type="text/css" media="all" href="/i/www_base/css/base.css?ver=2015-06-01" />-->
+<link media="all" rel="stylesheet" type="text/css" href="/i/www_base/css/bootstrap3.4.1.min.css?v=1" />
+  <!--<link media="all" rel="stylesheet" type="text/css" href="/i/studis/css/bootstrap_clean_studis.css?ver=2" />-->
+      <script type="text/javascript" src="/i/www_base/lib_www/jquery/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/i/www_base/lib_www/jquery/ui/jquery-ui-1.10.3.custom.min.js"></script>
+
+        <script type="text/javascript" src="/i/www_base/lib_www/jquery/external/jquery.mb.browser.min.js?v={$version}"></script>
+    <script type="text/javascript" src="/i/www_base/lib_www/ed/ed.js?version=7"></script>
+
+    <script type="text/javascript" src="/i/www_base/js/bootstrap3.4.1.min.js"></script>
+
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/www_base/css/html.css">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/www_base/css/rozvrh.css">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/www_base/css/bootstrap_vut/bootstrap_vut.css?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/studis/css/bootstrap_local.css?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/www_base/css/icomoon/style.css?ver=10&version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,greek,greek-ext,cyrillic-ext,latin-ext">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/www_base/lib_www/vut-lib/VutAjax/vut.ajax.css?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/assets/base/vutbox/vutbox.css?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/assets/base/combobox/combobox.css?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef">
+  <link rel="stylesheet" title="Default Skin" media="all" type="text/css" href="/i/www_base/js/contextmenu/contextmenu.css?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef">
+  <script src="/i/www_base/js/html.js"></script>
+  <script src="/i/assets/base/rozvrh/rozvrh.pack.js"></script>
+  <script src="/i/www_base/lib_www/vut-lib/VutAjax/vut.ajax.pack.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+  <script src="/i/assets/base/combobox/combobox.pack.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+  <script src="/i/www_base/js/contextmenu/contextmenu.pack.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+
+</head>
+<body>
+<div id="loader-studis" class="loader-loaded-studis-no-js"></div>
+<script>document.getElementById("loader-studis").classList.remove("loader-loaded-studis-no-js");</script>
+<div id="ttip"></div><script language=javascript type="text/javascript">ttip_obj_init()</script>
+<div class="bg bg-fit"></div>
+<div class="bg bg-css-line bg-css-line-studis"></div>
+<div class="bg bg-css-studis"></div>
+<div id="bg-overlay"></div>
+
+<div class="studis-layout">
+
+<nav class="navbar navbar-inverse">
+    <div class="vut-layout-head-wrap">
+
+            <div class="navbar-header vut-head-sidebar">
+               <a title="Hlavní stránka portálu VUT" class="navbar-brand" href="https://www.vut.cz/"><img src="/i/www_base/img/loga_svg/VUT_ZKR.svg"></a>
+            </div>
+
+            <div class="head-app-wrap">
+                <div id="navbar" class="navbar-left cvis-app">
+                    <ul class="nav navbar-nav">
+                        <li><a href="https://www.vut.cz/intra" title="Informační systém VUT v Brně" class="portal"><span class="icon-compass2"   aria-hidden="true"></span><br>Portál</a></li>
+                        <li class="active"><a href="https://www.vut.cz/studis/student.phtml" title="Informační systém pro studenty" class="studis"><span class="icon-book3"   aria-hidden="true"></span><br>Studis</a></li>
+                        <li><a href="https://www.vut.cz/teacher2/" title="Informační systém teacher 2" class="teacher"><span class="icon-briefcase"   aria-hidden="true"></span><br>Teacher</a></li>
+                        <li><a href="https://moodle.vut.cz/" title="E-learningový systém Moodle" class="elearning"><span class="icon-graduation"   aria-hidden="true"></span><br>eLearning</a></li>
+
+                        <li><a href="https://www.vut.cz/intra/apollo" title="Apollo" class="apollo"><span class="icon-apollo"   aria-hidden="true"></span><br>Apollo</a></li>
+                        <!--<li><a href="https://www.vutbr.cz/wiki/" title="Wiki VUT v Brně" class="wiki"><span class="icon-wiki_vut"   aria-hidden="true"></span><br>Wiki</a></li>-->
+                    </ul>
+                </div>
+    <!--            cvis app jako dropdown-->
+                <div class="dropdown cvis-app-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        <span class="cvis-app-selector bg-studis">Studis&nbsp;<span class="vut-icon-down icon-arrow-down2" aria-hidden="true"></span></span>
+                    </a>
+                    <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                        <li class="close-cvis-app-dropdown"><a href="#"><span class="icon-cancel-circle2" aria-hidden="true"></span> <span>Zavřít</span></a></li>
+                        <li><a href="https://www.vut.cz/intra" title="Informační systém VUT v Brně" class="portal bg-portal"><span class="icon-compass2"   aria-hidden="true"></span> Portál</a></li>
+    <!--                    <li><a href="--><!--" title="Informační systém pro studenty" class="studis bg-studis">--><!-- Studis</a></li>-->
+                        <li><a href="https://www.vut.cz/teacher2/" title="Informační systém teacher 2" class="teacher bg-teacher"><span class="icon-briefcase"   aria-hidden="true"></span> Teacher</a></li>
+                        <li><a href="https://moodle.vut.cz/" title="E-learningový systém Moodle" class="elearning bg-elearning"><span class="icon-graduation"   aria-hidden="true"></span> eLearning</a></li>
+                        <li><a href="https://www.vut.cz/intra/apollo" title="Apollo" class="apollo bg-apollo"><span class="icon-apollo"   aria-hidden="true"></span>Apollo</a></li>
+                        <!--<li><a href="https://www.vutbr.cz/wiki/" title="Wiki VUT v Brně" class="wiki bg-wiki"><span class="icon-wiki_vut"   aria-hidden="true"></span> Wiki</a></li>-->
+                    </ul>
+                </div>
+
+    <!--            cvisbar pro desktopy-->
+                <span class="cvis-bar-desktop-wrap">
+
+
+                    <ul class="nav navbar-nav navbar-right cvis-bar">
+
+                                            <li class="cvis-bar-uzivatel" title="Údaj o přihlášeném studentovi">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" id="dropdown-user">
+                            <span class="icon-user"   aria-hidden="true"></span>                            <span class="uzivatel-text">&nbsp;Tomáš Brablec</span>
+                        </a>
+                        <dl class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-user">
+                            <dt>Jméno</dt> <dd>Tomáš Brablec</dd><dt>Login</dt> <dd>xbrabl04</dd><dt>Os. číslo</dt> <dd>250512</dd><dt>Číslo zvoleného studia</dt> <dd>294911</dd>                        </dl>
+                    </li>
+
+                    <li class="cvis-bar-nastroje"><a href="#" id="dropdown-tools" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><span class="icon-cog"   aria-hidden="true"></span><span class="nastroje-text">&nbsp; Nástroje</span></a>
+
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-tools">
+            <!--                        <li class=""><a href="#" id="menuKompakt" class="btn-navbar-border" data-toggle="modal" data-target="#nastaveniKompaktModal" data-redirect="/test/teacher2/cs/test/tabulka/showCompact/1">--><!--<span class="text">--><!--</span></a></li>-->
+                            <li><a href="#" id="napovedaOdkaz" class="btn-navbar-border" data-toggle="modal" data-target="#nastaveniNapovedaModal"><span class="icon-question5"   aria-hidden="true"></span><span class="text">Zakázat nápovědu</span></a></li>
+                                        </ul>
+                    </li>
+
+                                        <li class="cvis-bar-jazyk"><a href="?lang=1&amp;sn=registrace_vyucovani" title="Switch to English"><span class="icon-lang-en"   aria-hidden="true"></span><span class="jazyk-text">&nbsp; English</span></a></li>
+
+
+                        <li class="cvis-bar-casovac"><a href="#"><span class="icon-hour-glass2"   aria-hidden="true"></span>&nbsp; <span class="edClock clock-4-4">119 min</span></a></li>
+                    <li class="cvis-bar-odhlasit"><a href="https://www.vut.cz/login/out"><span class="icon-switch"   aria-hidden="true"></span><span class="logout-text">&nbsp; Odhlásit</span></a></li>
+                </ul>
+                    </span>
+              </div>
+    </div>
+</nav>
+
+    <!-- Modal -->
+    <div class="modal fade" data-backdrop="static" data-keyboard="false" id="modalLogoutWarn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 id="modalLogoutLabel"><span style="color: #e4002b;"><span class="icon-notification2"   aria-hidden="true"></span></span> Upozornění</h2>
+                </div>
+                <div class="modal-body" id="modalLogoutBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="refreshLogin" class="btn btn-primary refresh-login">Obnovit přihlášení</button>
+                    <button type="button" class="btn btn-primary refresh-logout">Prodloužit</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- konec  Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="nastaveniNapovedaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">×</span></button>
+                    <h3 class="modal-title" id="myModalLabel">Nápověda</h3>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="helpButton">Povolit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vut-layout-wrap vut-layout-wrap-main">
+
+
+
+<!--<div class="navigation-left">-->
+
+<div class="vut-sidebar-wrap">
+    <div class="sidebar vut-sidebar">
+<!--    kopie z headeru pro mobilni placaky-->
+    <span class="mobile-faculty-bar-part  pull-right">
+            <span class="cvis-bar-mobile-wrap">
+                <ul class="nav navbar-nav navbar-right cvis-bar">
+                    <!-- kopie cvis bar -->
+                    
+
+                    <li class="cvis-bar-uzivatel">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" id="dropdown-user">
+                            <span class="icon-user"   aria-hidden="true"></span>                            <span class="uzivatel-text">&nbsp;Tomáš Brablec</span>
+                        </a>
+                        <dl class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-user">
+                            <dt>Jméno</dt> <dd>Tomáš Brablec</dd><dt>Login</dt> <dd>xbrabl04</dd><dt>Os. číslo</dt> <dd>250512</dd><dt>Číslo zvoleného studia</dt> <dd>294911</dd>                        </dl>
+                    </li>
+
+                    <li class="cvis-bar-nastroje"><a href="#" id="dropdown-tools" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><span class="icon-cog"   aria-hidden="true"></span><span class="nastroje-text">&nbsp; Nástroje</span></a>
+
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-tools">
+                                    <!--                        <li class=""><a href="#" id="menuKompakt" class="btn-navbar-border" data-toggle="modal" data-target="#nastaveniKompaktModal" data-redirect="/test/teacher2/cs/test/tabulka/showCompact/1">--><!--<span class="text">--><!--</span></a></li>-->
+                            <li><a href="#" id="napovedaOdkaz" class="btn-navbar-border" data-toggle="modal" data-target="#nastaveniNapovedaModal"><span class="icon-question5"   aria-hidden="true"></span><span class="text">Zakázat nápovědu</span></a></li>
+                                                                                </ul>
+                    </li>
+
+                                        <li class="cvis-bar-jazyk"><a href="?lang=1&amp;sn=registrace_vyucovani" title="Switch to English"><span class="icon-lang-en"   aria-hidden="true"></span><span class="jazyk-text">&nbsp; English</span></a></li>
+
+
+                        <li class="cvis-bar-casovac"><a href="#"><span class="icon-hour-glass2"   aria-hidden="true"></span>&nbsp; <span class="edClock clock-4-4">59 min</span></a></li>
+                    <li class="cvis-bar-odhlasit"><a href="https://www.vut.cz/login/out"><span class="icon-switch"   aria-hidden="true"></span><span class="logout-text">&nbsp; Odhlásit</span></a></li>
+                        </ul>
+                </span>
+
+    </span>
+
+
+
+
+
+    <ul class="nav faculty-selector-ul"><li class="dropdown faculty-selector"><a class=""  title="Vybráno studium FIT" data-toggle="dropdown" aria-expanded="true" style=""><img src="/i/www_base/img/loga_svg/FIT_ZKR.svg" class="logo-fit"></a></li></ul>
+
+        <div class="search-menu-mobile-wrap">
+            <ul class="nav nav-sidebar menu-search-ul">
+                <li>
+                    <div class="menu-search">
+                        <form>
+                            <span class="icon-search3 vut-search-icon"></span>
+                            <span class="text"><input type="search" placeholder="Hledat v menu…"
+                                                      class="" tabindex="1" autocomplete="off" id="menu-hledani"></span>
+                            <button class="icon-cross3 hidden search-reset" type="reset"></button>
+                        </form>
+                    </div>
+                    <div id="menu-search-help" class="hidden animheight">
+                        <div id="resizable-content"></div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#vut-menu" aria-expanded="false"
+                 aria-controls="navbar">
+                <span class="toggle-text">MENU</span>
+                <span class="icon-menu7"></span>
+            </div>
+        </div>
+
+
+        <nav id="vut-menu" class="navbar-collapse collapse"><ul class="nav nav-sidebar"><li ><a href="?sn=uvodni_info" title="Zobrazení úvodních informací pro studenta"><span class="icon-bullhorn"></span><span class="text">Úvodní informace</span></a></li><li ><a href="?sn=vyber_studia" title="Zobrazení přehledu změn studia"><span class="icon-books"></span><span class="text">Studium</span></a></li><li ><a href="?sn=osobni_info" title="Zobrazení osobních informací o studentovi"><span class="icon-user"></span><span class="text">Osobní informace</span></a></li><li ><a href="?sn=student_zadosti" title="Potvrzení o studiu"><span class="icon-stack-text"></span><span class="text">Potvrzení o studiu</span></a></li><li ><a href="?sn=rizeni_a_zadosti" title="Řízení a žádosti"><span class="icon-stack-text"></span><span class="text">Řízení a žádosti</span></a></li><li ><a href="?sn=e_omluvenka" title="Elektronické omlouvání z vyuky"><span class="icon-stack-text"></span><span class="text">Elektronické omluvenky</span></a></li><li ><a href="?sn=prohlaseni_studenta" title="Prohlášení o zdravotním stavu"><span class="icon-vut-covid"></span><span class="text">Prohlášení o zdravotním stavu</span></a></li><li ><a href="?sn=harmonogram" title="Zobrazení časového harmonogramu fakulty"><span class="icon-calendar"></span><span class="text">Harmonogram</span></a></li></ul><ul class="nav nav-sidebar"><li ><a href="?sn=el_index" title="Zobrazení a tisk elektronického indexu"><span class="icon-el-index"></span><span class="text">Elektronický index</span></a></li><li ><a href="?sn=osobni_rozvrh" title="Osobní rozvrh zaregistrované výuky"><span class="icon-calendar"></span><span class="text">Individuální rozvrh</span></a></li><li ><a href="?sn=aktuality_predmet" title="Přehled aktualit ze zapsaných předmětů"><span class="icon-bullhorn"></span><span class="text">Aktuality z předmětu</span></a></li><li ><a href="?sn=stipendia" title="Správa stipendií"><span class="icon-piggy-bank"></span><span class="text">Stipendia</span></a></li><li ><a href="?sn=poplatky" title="Správa poplatků"><span class="icon-stack-text"></span><span class="text">Poplatky</span></a></li><li ><a href="?sn=rozvrhy" title="Rozvrhy"><span class="icon-calendar"></span><span class="text">Rozvrhy</span></a></li></ul><ul class="nav nav-sidebar"><li ><a href="?sn=individualni_plan" title="Úprava individuálního plánu studenta"><span class="icon-individualni"></span><span class="text">Individuální plán</span></a></li><li ><a href="?sn=individualni_plan_fit" title="Registrace předmětů"><span class="icon-stack-text"></span><span class="text">Registrace předmětů</span></a></li><li ><a href="?sn=svobodne_predmety" title="Svobodné předměty"><span class="icon-pencil2"></span><span class="text">Svobodné předměty</span></a></li><li  class="active"><a href="?sn=registrace_vyucovani" title="Registrace vyučování - volba konkrétní vyučovací hodiny"><span class="icon-stack-text"></span><span class="text">Registrace vyučování</span></a></li><li ><a href="?sn=terminy_zk" title="Registrace termínů zkoušek, zápočtů, ..."><span class="icon-clipboard5"></span><span class="text">Registrace termínů</span></a></li><li ><a href="?sn=projekty" title="Registrace zadání"><span class="icon-file-text2"></span><span class="text">Registrace zadání</span></a></li><li ><a href="?sn=projektova_praxe" title="Projektová praxe"><span class="icon-spoon-knife"></span><span class="text">Projektová praxe</span></a></li></ul><ul class="nav nav-sidebar"><li ><a href="?sn=moje_komise" title="Moje komise"><span class="icon-shield3"></span><span class="text">Moje komise</span></a></li></ul><ul class="nav nav-sidebar"><li ><a href="?sn=zav_prace_moje" title="Moje závěrečná práce"><span class="icon-file-text2"></span><span class="text">Moje závěrečná práce</span></a></li><li ><a href="?sn=prihlaska_szz" title="Přihláška ke státní závěrečné zkoušce"><span class="icon-file-plus"></span><span class="text">Přihláška k SZZ</span></a></li><li ><a href="?sn=prihlaska_k_szz" title="Zobrazení komise pro SZZ a hodnocení"><span class="icon-stack-text"></span><span class="text">SZZ - přihláška, výsledky</span></a></li></ul><ul class="nav nav-sidebar"><li ><a href="?sn=hodnoceni_pr" title="Hodnocení předmětů s podporou mezifakultních předmětů"><span class="icon-question2"></span><span class="text">Hodnocení předmětů</span></a></li><li ><a href="?sn=anketa_obecna" title="Ankety"><span class="icon-bubble-notification"></span><span class="text">Ankety</span></a></li><li ><a href="?sn=anketa_statistiky" title="Výsledky hodnocení předmětů"><span class="icon-bubble-notification"></span><span class="text">Výsledky hodnocení předmětů</span></a></li><li ><a href="?sn=sport" title="Sport"><span class="icon-soccer"></span><span class="text">Sport</span></a></li><li ><a href="?sn=poradenstvi" title="Profesní a psychologické poradenství, rozvojové kurzy"><span class="icon-compass2"></span><span class="text">Poradenství a kurzy</span></a></li><li ><a href="?sn=zahranicni_pobyty" title="Informace Odboru zahraničních vztahů"><span class="icon-airplane2"></span><span class="text">Zahraniční pobyty</span></a></li></ul></nav></div>
+</div>
+
+<div class="main"><div class="main-content"><h1 class="page-title">Registrace vyučování</h1>
+<link media="screen, handheld" rel="stylesheet" type="text/css" href="/i/www_base/css/bootstrap_vut/bootstrap_vut.css" /><h3>Volba aktivního roku a semestru</h3><form enctype="multipart/form-data" accept-charset="utf-8" action="https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani" id="form_volba_rok_semestr" method="POST" class="form-horizontal"><input type="hidden" class="form-control" id="formID" name="formID" value="form_volba_rok_semestr" /><input type="hidden" name="script_name" value="registrace_vyucovani" /><div class="form-group form-group-required"><label class="formRequired control-label  col-sm-3 col-md-3 col-lg-3" for="semestr_rok">Aktivní rok a semestr:</label><div class="col-sm-9 col-md-7 col-lg-7"><select id="semestr_rok" class="form-control form-select form-control  form-control" name="semestr_rok"><option value="2023;2" selected="selected">2023/24 zimní</option><option value="2023;1">2023/24 letní</option><option value="2022;2">2022/23 zimní</option><option value="2022;1">2022/23 letní</option></select></div></div><div class="form-group"><div class="col-sm-offset-3 col-sm-9 col-md-offset-3 col-md-9 col-lg-offset-3 col-lg-9"><button type="submit" class="btn-primary btn btn-default" id="btnSubmit" name="btnSubmit" value="1">Zvolit semestr</button></div></div></form><br />
+<form action="./student.phtml" method="post" name="registrace_vyucovani"
+      id="registrace_vyucovani">
+    <input type="hidden" name="script_name" value="registrace_vyucovani_act"/>
+    <input type="hidden" name="typ_semestru_id" value=""/>
+    <input type="hidden" name="kontrola_vsech_rj" value=""/>
+    <input type="hidden" name="zmena_semestru" value="0"/>
+    <input type=hidden name="s_key" value="9dc7bc3b98" />
+<input type=hidden name="s_tkey" value="QnzxzuY9xm" />
+
+    <table class="table table-bordered table-middle" style="margin-top: 10px;max-width:800px;"><thead><tr><th class="center"><span class="bs_ttip_w200" data-container="body" data-html="true" title="Zobrazit nebo skrýt nezaregistrovaná vyučování daného předmětu a typu vyučování.<br />Zaregistrovaná vyučování se neskryjí.">Zob.</span></th><th class=center><span class=bs_ttip title="Zkratka předmětu – Název předmětu – Typ výuky">Předmět – typ výuky</span></th><th ><span class=bs_ttip title="Ústav, fakulta">Úst./Fak.</span></th><th ><span class=bs_ttip title="Registrováno">Reg.</span></th><th ><span class=bs_ttip title="Uznáno">Uzn.</span></th></tr></thead><tbody><tr><td class=center style="background-color:#EF9A9A"><label class="custom-control custom-checkbox check-new2"><input class="custom-control-input" type="checkbox" name="f_rj[382478]" id="f_rj[382478]" value="382478" checked><span class="custom-control-indicator"></span></label></td><td style="background-color:#EF9A9A"><label for="f_rj[382478]">IFJ - Formální jazyky a překladače - Přednáška</label></td><td style="background-color:#EF9A9A"><a href="https://www.fit.vut.cz/units/uifs/" class="course" target="new">UIFS</a>, <a href="https://www.fit.vut.cz/.cs" class="course" target="new">FIT</a></td><td style="background-color:#EF9A9A; text-align: center;"><span class="green bs_ttip icon-checkmark" title="Vyučování daného předmětu a typu výuky je zaregistrováno." style="font-size:1.3em" aria-hidden="true"></span></td><td style="background-color:#EF9A9A; text-align: center;">&nbsp;</td></tr><tr><td class=center style="background-color:#F48FB1"><label class="custom-control custom-checkbox check-new2"><input class="custom-control-input" type="checkbox" name="f_rj[382503]" id="f_rj[382503]" value="382503" checked><span class="custom-control-indicator"></span></label></td><td style="background-color:#F48FB1"><label for="f_rj[382503]">IMA2 - Matematická analýza 2 - Přednáška</label><br>Registrace možná 11.&nbsp;9.&nbsp;2023, 09:00 h. – 17.&nbsp;9.&nbsp;2023, 23:59 h.</td><td style="background-color:#F48FB1"><a href="https://www.umat.fekt.vut.cz/" class="course" target="new">UMAT</a>, <a href="https://www.fit.vut.cz/.cs" class="course" target="new">FIT</a></td><td style="background-color:#F48FB1; text-align: center;"><span class="green bs_ttip icon-checkmark" title="Vyučování daného předmětu a typu výuky je zaregistrováno." style="font-size:1.3em" aria-hidden="true"></span></td><td style="background-color:#F48FB1; text-align: center;">&nbsp;</td></tr><tr><td class=center style="background-color:#CE93D8"><label class="custom-control custom-checkbox check-new2"><input class="custom-control-input" type="checkbox" name="f_rj[382504]" id="f_rj[382504]" value="382504" checked><span class="custom-control-indicator"></span></label></td><td style="background-color:#CE93D8"><label for="f_rj[382504]">IMA2 - Matematická analýza 2 - Cvičení s počítačovou podporou</label><br>Registrace možná 11.&nbsp;9.&nbsp;2023, 09:00 h. – 17.&nbsp;9.&nbsp;2023, 23:59 h.</td><td style="background-color:#CE93D8"><a href="https://www.umat.fekt.vut.cz/" class="course" target="new">UMAT</a>, <a href="https://www.fit.vut.cz/.cs" class="course" target="new">FIT</a></td><td style="background-color:#CE93D8; text-align: center;"><span class="green bs_ttip icon-checkmark" title="Vyučování daného předmětu a typu výuky je zaregistrováno." style="font-size:1.3em" aria-hidden="true"></span></td><td style="background-color:#CE93D8; text-align: center;">&nbsp;</td></tr><tr>
+<td class=td-btn colspan="6" style="font-weight: bold;">
+        <a href="javascript:invert(document.getElementById('registrace_vyucovani'),'f_rj');" class="btn btn-sm btn-default" title="Invertovat výběr"><span class="icon-spinner11"   aria-hidden="true"></span>Invertovat výběr</a></td>
+</tr>
+
+    <tr>
+        <td colspan="1" class=center>
+            <label class="custom-control custom-checkbox check-new2">
+                <input type="checkbox" style="background-color:transparent; border:0;" class="check-new"   name="zobrazit_jen_volne" id="zobrazit_jen_volne" />
+                <span class="custom-control-indicator"></span>
+            </label>
+        </td>
+        <td colspan="5" class= >
+            <label for="zobrazit_jen_volne">Zobrazit jen volná vyučování</label>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<p>
+    <input type="submit" name="potvrdit_volbu_vyucovani" value="Zobrazit vybrané" class="btn btn-success btn-sm" />
+</p>
+<p><br /></p>
+
+<div class=table-responsive data-table-max-width=2000><div class="table-responsive-rozvrhy" data-table-max-width="2000"><div class="rozvrh"><div class="rozvrh-content"><div class="osa"><div class="popis">&nbsp;</div><div class="radek"><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">8<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">9<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">10<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">11<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">12<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">13<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">14<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">15<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">16<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">17<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">18<Span class="osa-text-minutes">:00</Span></div></div></div></div><div class="osa-bg"><div class="popis">&nbsp;</div><div class="radek"><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div><div class="osa-blok" style="width: 9.09091%;">&nbsp;</div></div></div><div class="rozvrh-dny"><div class="den"><div class="popis" data-datumdne="11.09.2023">Po</div><div class="radky"><div class="radek"><div class="blok blok-nic" style="width: 9.09091%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #F48FB1;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Pondělí&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;9:00&amp;ndash;10:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Přednáška&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova; &lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/D0206; &lt;/span&gt;&lt;span&gt;B/D105&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Vítovec Jiří, Mgr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;38/470&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/10, 2BIA/11, 2BIA/12, 2BIA/13, 2BIA/14, 2BIA/15, 2BIA/16, 2BIA/17, 2BIA/18, 2BIA/19, 2BIA/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(P)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382503]" class="custom-control-input" id="rj[268240][382503]-315769" value="315769"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">09:00&ndash;10:50</span><div class="blok-kapacita"><strong>38/470</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315769" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/D0206, </span><span class="">B/D105</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Vítovec Jiří</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Pondělí&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;11:00&amp;ndash;12:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Vítovec Jiří, Mgr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;5/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315705" value="315705"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">11:00&ndash;12:50</span><div class="blok-kapacita"><strong>5/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315705" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Vítovec Jiří</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Pondělí&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;13:00&amp;ndash;14:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Fuchs Petr, RNDr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;0/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Limity:&amp;nbsp;&lt;/th&gt;&lt;td&gt; 0/20 - restoví studenti&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315680" value="315680"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">13:00&ndash;14:50</span><div class="blok-kapacita"><strong>0/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315680" target="_blank">seznam</a>)</small></span><br /> 0/20 - restoví studenti</div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Fuchs Petr</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Pondělí&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;15:00&amp;ndash;16:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Vítovec Jiří, Mgr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;3/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315657" value="315657"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">15:00&ndash;16:50</span><div class="blok-kapacita"><strong>3/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315657" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Vítovec Jiří</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 19.69697%;" >&nbsp;</div></div><div class="radek"><div class="blok blok-nic" style="width: 27.27273%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #F48FB1;border: 3px solid red;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Pondělí&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;11:00&amp;ndash;12:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Přednáška&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Technická&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Aula profesora Braunera&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Kolářová Edita, doc. RNDr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;76/338&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIB/20, 2BIB/21, 2BIB/22, 2BIB/23, 2BIB/24, 2BIB/25, 2BIB/26, 2BIB/27, 2BIB/28, 2BIB/29, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(P)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382503]" class="custom-control-input" id="rj[268240][382503]-315801" value="315801"  checked="checked" />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">11:00&ndash;12:50</span><div class="blok-kapacita"><strong>76/338</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315801" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">Aula profesora Braunera</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Kolářová Edita</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 56.06061%;" >&nbsp;</div></div></div></div><div class="den"><div class="popis" data-datumdne="12.09.2023">Út</div><div class="radky"><div class="radek"><div class="blok blok-nic" style="width: 18.18182%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn    blok-naplnena-kapacita barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Úterý&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;10:00&amp;ndash;11:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A113&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Vážanová Gabriela, Mgr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;64/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315755" value="315755"  disabled="disabled" />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">10:00&ndash;11:50</span><div class="blok-kapacita"><strong>64/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315755" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A113</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Vážanová Gabriela</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;border: 3px solid red;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Úterý&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;12:00&amp;ndash;13:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A113&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Vážanová Gabriela, Mgr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;15/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315658" value="315658"  checked="checked" />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">12:00&ndash;13:50</span><div class="blok-kapacita"><strong>15/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315658" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A113</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Vážanová Gabriela</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 10.60606%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Úterý&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;15:00&amp;ndash;16:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Vážanová Gabriela, Mgr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;13/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315647" value="315647"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">15:00&ndash;16:50</span><div class="blok-kapacita"><strong>13/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315647" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Vážanová Gabriela</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Úterý&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;17:00&amp;ndash;18:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Vážanová Gabriela, Mgr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;7/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315629" value="315629"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">17:00&ndash;18:50</span><div class="blok-kapacita"><strong>7/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315629" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Vážanová Gabriela</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div></div></div></div><div class="den"><div class="popis" data-datumdne="13.09.2023">St</div><div class="radky"><div class="radek"><div class="blok blok-nic" style="width: 27.27273%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 25.757580%;" ><div style="background-color: #EF9A9A;border: 3px solid red;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Formální jazyky a překladače" data-content="&lt;h5&gt;Formální jazyky a překladače (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IFJ&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Středa&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;11:00&amp;ndash;13:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Přednáška&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova; &lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/E104; &lt;/span&gt;&lt;span&gt;B/E105; &lt;/span&gt;&lt;span&gt;B/E112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Meduna Alexandr, prof. RNDr., CSc.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;270/294&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/10, 2BIA/11, 2BIA/12, 2BIA/13, 2BIA/14, 2BIA/15, 2BIA/16, 2BIA/17, 2BIA/18, 2BIA/19, 2BIA/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268228" target=_blank>IFJ</a></span> <span class="blok-typ-rj" data-desktoponly="1">(P)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268228][382478]" class="custom-control-input" id="rj[268228][382478]-315803" value="315803"  checked="checked" />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">11:00&ndash;13:50</span><div class="blok-kapacita"><strong>270/294</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315803" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/E104, </span><span class="">B/E105, </span><span class="">B/E112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Meduna Alexandr</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 10.60606%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Středa&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;15:00&amp;ndash;16:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Kolářová Edita, doc. RNDr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;26/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315661" value="315661"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">15:00&ndash;16:50</span><div class="blok-kapacita"><strong>26/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315661" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Kolářová Edita</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Středa&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;17:00&amp;ndash;18:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/A112&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Kolářová Edita, doc. RNDr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;16/64&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315618" value="315618"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">17:00&ndash;18:50</span><div class="blok-kapacita"><strong>16/64</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315618" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/A112</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Kolářová Edita</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div></div><div class="radek"><div class="blok blok-nic" style="width: 45.45455%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Středa&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;13:00&amp;ndash;14:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Technická&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;T8/T 3.02&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Fuchs Petr, RNDr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;2/56&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315684" value="315684"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">13:00&ndash;14:50</span><div class="blok-kapacita"><strong>2/56</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315684" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">T8/T 3.02</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Fuchs Petr</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 1.51515%;" >&nbsp;</div><div class="blok js-click-tooltip"
+            style="width: 16.666670%;" ><div style="background-color: #CE93D8;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Matematická analýza 2" data-content="&lt;h5&gt;Matematická analýza 2 (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IMA2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace od:&amp;nbsp;&lt;/th&gt;&lt;td&gt;11. 9. 2023 09:00 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Registrace do:&amp;nbsp;&lt;/th&gt;&lt;td&gt;17. 9. 2023 23:59 h.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Středa&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;15:00&amp;ndash;16:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Cvičení s počítačovou podporou&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Technická&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;T8/T 3.02&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Fuchs Petr, RNDr., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;0/56&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIA/xx, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268240" target=_blank>IMA2</a></span> <span class="blok-typ-rj" data-desktoponly="1">(CPP)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268240][382504]" class="custom-control-input" id="rj[268240][382504]-315867" value="315867"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">15:00&ndash;16:50</span><div class="blok-kapacita"><strong>0/56</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315867" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">T8/T 3.02</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Fuchs Petr</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 19.69697%;" >&nbsp;</div></div></div></div><div class="den"><div class="popis" data-datumdne="14.09.2023">Čt</div><div class="radky"><div class="radek"><div class="blok js-click-tooltip"
+            style="width: 25.757580%;" ><div style="background-color: #EF9A9A;" class="blok-vn     barva- blok-nezvetsovat"  data-placement="auto top" data-original-title="Formální jazyky a překladače" data-content="&lt;h5&gt;Formální jazyky a překladače (FIT)&lt;/h5&gt;&lt;table class=tooltip-table&gt;&lt;tr&gt;&lt;th&gt;Zkratka:&amp;nbsp;&lt;/th&gt;&lt;td&gt;IFJ&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Den:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-den&#039;&gt;Čtvrtek&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Doba:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-doba&#039;&gt;8:00&amp;ndash;10:50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Typ výuky:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Přednáška&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Areál:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;Božetěchova&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Místnost:&amp;nbsp;&lt;/th&gt;&lt;td class=&#039;tooltip-datum-mistnost&#039;&gt;&lt;span&gt;B/D105&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Vyučující:&amp;nbsp;&lt;/th&gt;&lt;td&gt;Burgetová Ivana, Ing., Ph.D.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Obsazeno/max.:&amp;nbsp;&lt;/th&gt;&lt;td&gt;66/316&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;Stud. skupina:&amp;nbsp;&lt;/th&gt;&lt;td&gt;&lt;div class=skupiny-uzsi-tooltip&gt;2BIB/20, 2BIB/21, 2BIB/22, 2BIB/23, 2BIB/24, 2BIB/25, 2BIB/26, 2BIB/27, 2BIB/28, 2BIB/29, 2BIB/xx, 3BIT/xx&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" data-keymerger="" data-keymergerpos="" ><p class="blok-nadpis"><span class="blok-zkratka-vyuka"><a href="https://www.vut.cz/studenti/predmety/detail/268228" target=_blank>IFJ</a></span> <span class="blok-typ-rj" data-desktoponly="1">(P)</span></p><div class=blok-registrace>
+                <label class="custom-control custom-radio radio-new2">
+                    <input type="radio" name="rj[268228][382478]" class="custom-control-input" id="rj[268228][382478]-315779" value="315779"  />
+                    <span class="custom-control-indicator"></span>
+                </label></div><span class="blok-cas" data-mobilonly="1">08:00&ndash;10:50</span><div class="blok-kapacita"><strong>66/316</strong>  <span><small>(<a href="student.phtml?sn=volba_vyucovani_seznam&amp;vyucovani=315779" target="_blank">seznam</a>)</small></span></div><div class="blok-mistnost" data-desktoponly="1"><span class="">B/D105</span></div><span class="vypis-blok-osoba" data-desktoponly="1">Burgetová Ivana</span><a href="#" data-calltool="1"><span class="icon-info2"   aria-hidden="true"></span></a></div></div><div class="blok blok-nic" style="width: 74.24242%;" >&nbsp;</div></div></div></div></div><div class="osa"><div class="popis">&nbsp;</div><div class="radek"><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">8<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">9<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">10<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">11<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">12<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">13<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">14<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">15<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">16<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">17<Span class="osa-text-minutes">:00</Span></div></div><div class="osa-blok" style="width: 9.09091%;"><div class="osa-text">18<Span class="osa-text-minutes">:00</Span></div></div></div></div></div></div></div></div>
+    <!-- ukonceni formulare -->
+    
+        <div id="sticky">
+            <div style="text-align:center; padding:1em 0;"><input type="submit" name="potvrdit_volbu_vyucovani"
+                                                                  value="Potvrdit registraci vyučování"
+                                                                  class="btn btn-primary"/></div>
+        </div>
+
+        <p class="legenda-p"><strong>CPP</strong> – Cvičení s počítačovou podporou, <strong>P</strong> – Přednáška</p><p class="rozvrh-legenda"><span class="legenda-bunka"><span class="blok-pozn-legenda"></span></span> – U takto označeného vyučování je vyplněná poznámka, která se zobrazí ve výpisu po najetí na vyučování.</p><p class="rozvrh-legenda">Podbarvení dnů: <span class="legenda-bunka holiday-day"></span> státní svátek; <span class="legenda-bunka actual-day"></span> dnešní den<div class="ta-legent-div"><div class="ta-legenda-vyuka"><table class="table table-striped table-bordered table-middle"><thead><tr><th>Zkratka</th><th>Název</th><th>Jazyk</th></tr></thead><tbody><tr><td><strong><a class="no_u" href="?gm=gm_detail_predmetu&apid=268228" target="_blank">IFJ</a></strong></td><td><strong><a class="no_u" href="?gm=gm_detail_predmetu&apid=268228" target="_blank">Formální jazyky a překladače</a></strong></td><td>cs</td></tr><tr><td><strong><a class="no_u" href="?gm=gm_detail_predmetu&apid=268240" target="_blank">IMA2</a></strong></td><td><strong><a class="no_u" href="?gm=gm_detail_predmetu&apid=268240" target="_blank">Matematická analýza 2</a></strong></td><td>cs</td></tr></tbody></table></div></div></form>
+<div class=legend>
+    <h4><a name="legenda"></a>Legenda k tabulce</h4>
+<table>
+    <tr>
+        <th><img src="https://www.vut.cz/i/studis/images/radio3.gif" alt="" /></th>
+        <td style="padding:5px 5px 5px 5px;">Tuto výuku (pokud není červeně orámována a tedy zaregistrovaná) si nemůžete zaregistrovat. Možne příčiny popisují symboly            <span class="red bs_ttip icon-lock2" title="výuku nelze měnit" style="font-size:1.3em" aria-hidden="true"></span>, <span class="blue bs_ttip icon-pushpin" title="ve vyučování není víc než minimum studentů" style="font-size:1.3em" aria-hidden="true"></span>,             <span class="green bs_ttip icon-double-checkmark" title="výuka je uznána" style="font-size:1.3em" aria-hidden="true"></span>,
+            viz níže.
+        </td>
+    </tr>
+    <tr>
+        <th><img src="https://www.vut.cz/i/studis/images/radio4.gif" alt="" /></th>
+        <td style="padding:5px 5px 5px 5px;">Tuto výuku máte zaregistrovanou a registraci nemůžete změnit. Možnou příčinu popisuje symbol <span class="red bs_ttip icon-lock2" title="výuku nelze měnit" style="font-size:1.3em" aria-hidden="true"></span>, viz níže.</td>
+    </tr>
+    <tr>
+        <th><img src="https://www.vut.cz/i/studis/images/oramovani.png" alt="" /></th>
+        <td style="padding:5px 5px 5px 5px;">Červeně orámované výuky už máte zaregistrované.</td>
+    </tr>
+    <tr>
+        <th><span class="red bs_ttip icon-lock2" title="výuku nelze měnit" style="font-size:1.3em" aria-hidden="true"></span></th>
+        <td style="padding:5px 5px 5px 5px;">Výuku u této rozvrhové jednotky nelze přes web změnit - byla vytvořena automaticky, nebo pracovníkem útavu zajišťujícím výuku. Změnu ve výjimečných případech může provést pověřený pracovník (zpravidla na sekretariatu) ústavu zajišťujícího výuku předmětu.</td>    </tr>
+    <tr>
+        <th>
+            <span class="blue bs_ttip icon-lock2" title="Nelze změnit vyučování předmětu s jinou povinností" style="font-size:1.3em" aria-hidden="true"></span>        </th>
+        <td style="padding:5px 5px 5px 5px;">Tuto výuku máte zaregistrovanou a nemůžete ji změnit, protože registrace do vyučování není spuštěna pro předměty s touto povinností</td>    </tr>
+    <tr>
+        <th><span class="blue bs_ttip icon-pushpin" title="ve vyučování není víc než minimum studentů" style="font-size:1.3em" aria-hidden="true"></span></th>
+        <td style="padding:5px 5px 5px 5px;">Ve vyučování je zaregistrováno méně než minimum studentů. Do tohoto vyučování se studenti mohou zaregistrovat, ale nemohou se odregistrovat. Bližší informace viz seznam přihlášených studentů v buňce.
+        </td>
+    </tr>    <tr>
+        <th><img src="https://www.vut.cz/i/studis/images/113.gif" alt="" /></th>
+        <td style="padding:5px 5px 5px 5px;">Do tohoto vyučování se nelze registrovat přes www.</td>
+    </tr>
+    <tr>
+        <th>
+            <span class="green bs_ttip icon-double-checkmark" title="výuka je uznána" style="font-size:1.3em" aria-hidden="true"></span>        </th>
+        <td style="padding:5px 5px 5px 5px;">Výuka pro rozvrhovou jednotku je uznána. Výuku nelze měnit.</td>
+    </tr>
+    <tr>
+        <th><img src="https://www.vut.cz/i/studis/images/limity.png" title="limity pro vyučování" alt="limity pro vyučování" /></th>
+        <td style="padding:5px 5px 5px 5px;">Obsazenost vyučování se řídí hlavním limitem a limity (zobrazeny v závorce za hlavním limitem). Hlavní limit je u nastaven každého vyučování, limity jsou volitelné a vztahují se vždy k určité kategorii studenta. Student si může vyučování zaregistrovat při splnění těchto podmínek: <br />
+            - je místo v hlavním limitu (počet zaregistrovaných studentů je menší než maximální počet studentů) <br />
+            - pokud jsou definovány i limity a student patří do některé z kategorií definované limity, tak musí být místo i v některém limitu, do kterého student patří.        </td>
+    </tr>
+</table>
+</div>
+
+<script src="/i/www_base/js//registrace_vyucovani/click-popover.js?ver=01"
+        type="text/javascript"></script>
+<script>
+    "use strict";
+    $(document).ready(function () {
+        // automaticky vyber vice bunek patrici k registraci
+        $("div.rozvrh .rozvrh-content").on('click', '.blok-registrace', function (e) {
+            e.preventDefault();
+            var objLabel = $(this).find("label");
+            var objInput = objLabel.find("input:not(:disabled)");
+
+            if (objInput.length) {
+                var value = '' + objInput.attr("value");
+                var name = '' + objInput.attr("name");
+                var ids = name + '-' + value;
+            } else {
+                var ids = '' + objLabel.attr("data-ids");
+                var name = '' + objLabel.attr("data-nameradio");
+            }
+
+            $('div.rozvrh .rozvrh-content label[data-nameradio="' + name + '"]').removeClass('radio-new-aktivni');
+            $('div.rozvrh .rozvrh-content input[name="' + name + '"]').prop("checked", false);
+            $('div.rozvrh .rozvrh-content input:not(:disabled)[id="' + ids + '"]').prop("checked", true);
+            if ($('div.rozvrh .rozvrh-content input[id="' + ids + '"]').prop("checked") == true) {
+                $('div.rozvrh .rozvrh-content label[data-ids="' + ids + '"]').addClass('radio-new-aktivni');
+            }
+        });
+
+        // tool - nastaveni vlastni template, povoleni html
+        $('.bs_ttip_w200').tooltip({
+            template: '<div class="tooltip tooltip_w200" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+            html: true
+        });
+
+    });
+</script>
+
+<style>
+    span.radio-new ~ label {
+        box-shadow: 0 0 0 .11em #808080;
+        display: inline-block;
+        border-radius: 50%;
+        position: relative;
+        width: 1.3em;
+        height: 1.3em;
+        margin: 0.2em;
+        cursor: pointer
+    }
+
+    span.radio-new ~ label::before {
+        display: block;
+        position: absolute;
+        content: '';
+        border-radius: 50%;
+        width: 1.3em;
+        height: 1.3em;
+        top: 0;
+        left: 0;
+        background: #FFFFFF
+    }
+
+    span.radio-new ~ label.radio-new-aktivni::before {
+        background: #444444;
+        box-shadow: inset 0 0 0 0.35em #fff
+    }
+
+    span.radio-new ~ label.radio-new-aktivni {
+        box-shadow: 0 0 0 .11em #444444
+    }
+
+    span.radio-new ~ label.radio-new-aktivni:before {
+        background: #444444
+    }
+
+
+    span.radio-new-disabled ~ label::before {
+        background: #d7d7d7 !important;
+        border: 0 !important;
+        box-shadow: 0 0 0 2px grey
+    }
+
+    span.radio-new-disabled ~ label {
+        opacity: 0.4 !important;
+    }
+
+    /* tool - nastaveni min. sirky */
+    .tooltip_w200 .tooltip-inner {
+        min-width: 340px !important;
+        /* text-align:justify; */
+    }
+
+    .registrace-popover {
+        max-width: 550px;
+    }
+</style>
+
+</div></div>  <script src="/i/www_base/lib_www/jquery/external/jquery.cookie.js"></script>
+  <script src="/i/studis/js/main.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+  <script src="/i/assets/base/main/main.pack.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+  <script src="/i/assets/base/bs3/bs3.pack.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+  <script src="/i/assets/base/vutbox/vutbox.pack.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+  <script src="/i/assets/base/datagrid2/datagrid2.pack.js?version=29d7f66511ea00c496ccdc7d3b081ace5abc02ef"></script>
+</div> <!--vut-layout-wrap-->
+
+<!--paticka -->
+<div class="vut-layout-wrap">
+    <div class="sidebar vut-sidebar-wrap sidebar-foot">&nbsp;</div> <!-- nutne kvuli odsazeni zleva -->
+    <div class="main main-foot">
+        <div class="foot-left">
+            <img src="/i/www_base/img/loga_svg/CVIS_ZKR.svg" class="logo-cvis"><br>
+            © 2004–2023        </div>
+        <div class="foot-right">
+            <p>Pokud máte nějaké dotazy nebo problémy týkající se systému Studis, kontaktujte svého <a target=_blank href="https://www.vutbr.cz/cvis/pro-uzivatele/integratori">systémového integrátora</a>.</p><p>Pokud máte nějaké dotazy nebo problémy s údaji v systému Studis, kontaktujte své studijní oddělení.</p>        </div>
+        <div class="foot-debug">
+            <span class="-js-server-time">12.09.2023 10:33:38</span><br> php 0.08s, sql 0.00s<br>
+bulldog4, cdbx2        </div>
+    </div>
+</div>
+
+</div> <!--<div class="portal-layout">-->
+<script>
+    document.getElementById("loader-studis").classList.add("loader-loaded-studis");
+</script>
+
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCCFFS"
+                              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        </body>
+
+</html>

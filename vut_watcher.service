@@ -1,0 +1,11 @@
+[Unit]
+Description=VUT registration page watcher
+
+[Service]
+Type=simple
+ExecStart=/home/kiklop/tmpprojects/vut_watcher/target/release/vut_watcher
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
