@@ -1,10 +1,10 @@
 use serenity::{async_trait, model::prelude::*, prelude::*};
-use std::{error::Error, time::Duration};
+use std::{collections::HashSet, error::Error, time::Duration};
 
 const GID_AAAA: u64 = 1035650956383227995;
 const GID_TEST: u64 = 633337442480422912;
 
-async fn get_nr_rows() -> Option<usize> {
+async fn get_subjects() -> Option<HashSet<String>> {
     let client = reqwest::Client::new();
     let input = client
         .get("https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani")
@@ -22,12 +22,17 @@ async fn get_nr_rows() -> Option<usize> {
     let html = scraper::Html::parse_document(&input);
     let rows_selector =
         scraper::Selector::parse("form#registrace_vyucovani>table>tbody>tr").ok()?;
-    let len = html
+    let names_selector = scraper::Selector::parse("label").ok()?;
+
+    let names = html
         .select(&rows_selector)
-        .map(|_| ())
-        .collect::<Vec<_>>()
-        .len();
-    Some(len - 2) // 2 rows are garbage
+        // second cell is the subject name
+        .map(|row| row.select(&names_selector).nth(1).map(|x| x.inner_html()))
+        .flatten()
+        .filter(|s| !s.starts_with("Zobrazit")) // remove garbage line
+        .collect::<HashSet<_>>();
+
+    Some(names)
 }
 
 async fn get_channel(
@@ -55,18 +60,22 @@ impl EventHandler for DiscordHandler {
             .await
             .unwrap();
 
-        let mut prev_rows = get_nr_rows().await.unwrap();
+        let mut prev_subjects = get_subjects().await.unwrap();
         loop {
             tokio::time::sleep(Duration::from_secs(60)).await;
-            let rows = get_nr_rows().await;
+            let new_subjects = get_subjects().await;
 
-            if let Some(rows) = rows {
-                if rows == prev_rows {
+            if let Some(new_subjects) = new_subjects {
+                if new_subjects == prev_subjects {
                     continue;
                 }
-                prev_rows = rows;
+                let difference = new_subjects
+                    .difference(&prev_subjects)
+                    .map(|s| format!("{s}\n"))
+                    .collect::<String>();
+                prev_subjects = new_subjects;
 
-                let message = format!("⚠️ Registration page changed. {rows} rows available now.⚠️ \n https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
+                let message = format!("⚠️ Registration page changed. These subjects are now available: \n{difference} https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
                 println!("{message}");
                 info_channel.say(&ctx.http, &message).await.unwrap();
                 err_channel.say(&ctx.http, &message).await.unwrap();
@@ -83,9 +92,14 @@ impl EventHandler for DiscordHandler {
             msg.reply(&ctx.http, "I'm fine").await.unwrap();
         }
         if msg.content == "!kentus-manual" {
-            let rows = get_nr_rows().await.unwrap();
+            let subjects = get_subjects()
+                .await
+                .unwrap()
+                .into_iter()
+                .map(|s| format!("{s}\n"))
+                .collect::<String>();
 
-            msg.reply(&ctx.http, format!("Manual poll: {} rows in table", rows))
+            msg.reply(&ctx.http, format!("Manual poll: Available: \n {subjects}"))
                 .await
                 .unwrap();
         }
