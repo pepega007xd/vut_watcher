@@ -23,6 +23,7 @@ async fn get_subjects() -> Option<HashSet<String>> {
     let rows_selector =
         scraper::Selector::parse("form#registrace_vyucovani>table>tbody>tr").ok()?;
     let names_selector = scraper::Selector::parse("label").ok()?;
+    html.select(&rows_selector).next()?; // fails if page doesn't contain the table
 
     let names = html
         .select(&rows_selector)
@@ -51,7 +52,7 @@ struct DiscordHandler;
 #[async_trait]
 impl EventHandler for DiscordHandler {
     async fn ready(&self, ctx: Context, ready: Ready) {
-        println!("{} started", ready.user.name);
+        eprintln!("{} started", ready.user.name);
 
         let info_channel = get_channel(&ready.guilds, GID_AAAA, &ctx, "webhooci-hovnaci")
             .await
@@ -62,7 +63,7 @@ impl EventHandler for DiscordHandler {
 
         let mut prev_subjects = get_subjects().await.unwrap();
         loop {
-            tokio::time::sleep(Duration::from_secs(60)).await;
+            tokio::time::sleep(Duration::from_secs(10)).await;
             let new_subjects = get_subjects().await;
 
             if let Some(new_subjects) = new_subjects {
@@ -75,14 +76,12 @@ impl EventHandler for DiscordHandler {
                     .collect::<String>();
                 prev_subjects = new_subjects;
 
-                let message = format!("⚠️ Registration page changed. These subjects are now available: \n{difference} https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
-                println!("{message}");
+                let message = format!("⚠️  @everyone Registration page changed. These subjects are now available: \n{difference} https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
+                eprintln!("{message}");
                 info_channel.say(&ctx.http, &message).await.unwrap();
                 err_channel.say(&ctx.http, &message).await.unwrap();
             } else {
-                let message = format!("⚠️ Fetching registration page failed.⚠️ \n https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
-                println!("{message}");
-                err_channel.say(&ctx.http, &message).await.unwrap();
+                let message = eprintln!("⚠️ Fetching registration page failed.⚠️ \n https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
             }
         }
     }
