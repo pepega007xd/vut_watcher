@@ -1,8 +1,11 @@
 use serenity::{async_trait, model::prelude::*, prelude::*};
 use std::{collections::HashSet, error::Error, time::Duration};
 
-const GID_AAAA: u64 = 1035650956383227995;
-const GID_TEST: u64 = 633337442480422912;
+const GUILD_ID_PADI_SERVER: u64 = 1035650956383227995;
+const GUILD_ID_KENTUS_BLENTUS: u64 = 1200141239975153674;
+
+const PADI_CHANNEL_NAME: &str = "webhooci-hovnaci";
+const KENTUS_CHANNEL_NAME: &str = "kentusovy-dristy";
 
 async fn get_subjects() -> Option<HashSet<String>> {
     let client = reqwest::Client::new();
@@ -54,19 +57,24 @@ impl EventHandler for DiscordHandler {
     async fn ready(&self, ctx: Context, ready: Ready) {
         eprintln!("{} started", ready.user.name);
 
-        let info_channel = get_channel(&ready.guilds, GID_AAAA, &ctx, "webhooci-hovnaci")
-            .await
-            .unwrap();
-        let err_channel = get_channel(&ready.guilds, GID_TEST, &ctx, "bot-info")
-            .await
-            .unwrap();
+        let info_channel =
+            get_channel(&ready.guilds, GUILD_ID_PADI_SERVER, &ctx, PADI_CHANNEL_NAME)
+                .await
+                .unwrap();
+        let err_channel = get_channel(
+            &ready.guilds,
+            GUILD_ID_KENTUS_BLENTUS,
+            &ctx,
+            KENTUS_CHANNEL_NAME,
+        )
+        .await
+        .unwrap();
 
         let mut prev_subjects = get_subjects().await.unwrap();
         loop {
-            tokio::time::sleep(Duration::from_secs(10)).await;
-            let new_subjects = get_subjects().await;
+            tokio::time::sleep(Duration::from_secs(5)).await;
 
-            if let Some(new_subjects) = new_subjects {
+            if let Some(new_subjects) = get_subjects().await {
                 if new_subjects == prev_subjects {
                     continue;
                 }
@@ -78,30 +86,35 @@ impl EventHandler for DiscordHandler {
 
                 let message = format!("⚠️  @everyone Registration page changed. These subjects are now available: \n{difference} https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
                 eprintln!("{message}");
-                info_channel.say(&ctx.http, &message).await.unwrap();
-                err_channel.say(&ctx.http, &message).await.unwrap();
+                // info_channel.say(&ctx.http, &message).await.unwrap();
+                let debug_message = format!("⚠️  @pepega007xd Registration page changed. These subjects are now available: \n{difference} https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
+                err_channel.say(&ctx.http, &debug_message).await.unwrap();
             } else {
-                let message = eprintln!("⚠️ Fetching registration page failed.⚠️ \n https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
+                eprintln!("⚠️ Fetching registration page failed.⚠️ \n https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani");
             }
         }
     }
 
     async fn message(&self, ctx: Context, msg: Message) {
-        if msg.content == "!kentus-test" {
-            msg.reply(&ctx.http, "I'm fine").await.unwrap();
-        }
-        if msg.content == "!kentus-manual" {
-            let subjects = get_subjects()
-                .await
-                .unwrap()
-                .into_iter()
-                .map(|s| format!("{s}\n"))
-                .collect::<String>();
+        println!("message");
+        match msg.content.as_str() {
+            "!kentus-test" => {
+                msg.reply(&ctx.http, "I'm fine").await.unwrap();
+            }
+            "!kentus-manual" => {
+                let subjects = get_subjects()
+                    .await
+                    .unwrap()
+                    .into_iter()
+                    .map(|s| format!("{s}\n"))
+                    .collect::<String>();
 
-            msg.reply(&ctx.http, format!("Manual poll: Available: \n {subjects}"))
-                .await
-                .unwrap();
-        }
+                msg.reply(&ctx.http, format!("Manual poll: Available: \n {subjects}"))
+                    .await
+                    .unwrap();
+            }
+            _ => (),
+        };
     }
 }
 
