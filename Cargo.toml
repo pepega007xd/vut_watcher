@@ -9,17 +9,3 @@ edition = "2021"
 reqwest = "0.11.20"
 scraper = "0.17.1"
 tokio = { version = "1", features = ["full"] }
-
-[dependencies.serenity]
-default-features = false
-features = [
-    "builder",
-    "chrono",
-    "client",
-    "gateway",
-    "http",
-    "model",
-    "utils",
-    "rustls_backend",
-]
-version = "0.11"

@@ -1,9 +1,4 @@
-use serenity::{async_trait, model::prelude::*, prelude::*};
 use std::{error::Error, io::Write, time::Duration};
-
-const GUILD_ID_KENTUS_BLENTUS: u64 = 1200141239975153674;
-
-const KENTUS_CHANNEL_NAME: &str = "kentusovy-dristy";
 
 const REFRESH_DURATION: Duration = Duration::from_secs(30);
 
@@ -65,6 +60,8 @@ async fn register_fitstagram() -> String {
     let (key, tkey) = get_tkey().await;
     let payload = format!("script_name=zadani_registrace_act&apid=280933&zid=58330&s_key={key}&s_tkey={tkey}&prihlasit=Zaregistrovat+se+na+toto+zad%C3%A1n%C3%AD");
 
+    // i have no idea which of these things is actually required,
+    // and im too lazy to find out
     let client = reqwest::Client::new();
     let request = client
         .post("https://www.vut.cz/studis/student.phtml")
@@ -119,72 +116,20 @@ async fn get_autoreg_result() -> Option<String> {
         .map(|s| s.to_owned())
 }
 
-async fn get_channel(
-    guilds: &[UnavailableGuild],
-    guild_id: u64,
-    ctx: &Context,
-    channel_name: &str,
-) -> Option<ChannelId> {
-    let guild = guilds.iter().find(|g| g.id.0 == guild_id)?;
-    let channels = guild.id.channels(&ctx.http).await.ok()?;
-    Some(channels.into_iter().find(|c| c.1.name == channel_name)?.0)
-}
-
-struct DiscordHandler;
-
-#[async_trait]
-impl EventHandler for DiscordHandler {
-    async fn ready(&self, ctx: Context, ready: Ready) {
-        eprintln!("{} started", ready.user.name);
-
-        let kentus_channel = get_channel(
-            &ready.guilds,
-            GUILD_ID_KENTUS_BLENTUS,
-            &ctx,
-            KENTUS_CHANNEL_NAME,
-        )
-        .await
-        .unwrap();
-
-        loop {
-            if let Some(alert) = get_autoreg_result().await {
-                if alert.as_str() == "Vybrané zadání nebylo možné zaregistrovat. Pokus o překročení kapacity zadání." {
-                    tokio::time::sleep(REFRESH_DURATION).await;
-                    continue;
-                } else {
-                    eprintln!("alert: {alert}");
-                }
-            }
-
-            kentus_channel
-                .say(
-                    &ctx.http,
-                    "<@604953070308163604> registration page returned something, check the logs",
-                )
-                .await
-                .unwrap();
-
-            break;
-        }
-    }
-
-    async fn message(&self, ctx: Context, msg: Message) {
-        match msg.content.as_str() {
-            "!kentus-test" => {
-                msg.reply(&ctx.http, "I'm fine").await.unwrap();
-            }
-            _ => (),
-        };
-    }
-}
-
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn Error>> {
-    let intents = GatewayIntents::GUILD_MESSAGES | GatewayIntents::MESSAGE_CONTENT;
-    let mut bot = Client::builder(include_str!("../discord-token").trim(), intents)
-        .event_handler(DiscordHandler)
-        .await?;
-    bot.start().await?;
+async fn main() {
+    loop {
+        if let Some(alert) = get_autoreg_result().await {
+            if alert.as_str()
+                == "Vybrané zadání nebylo možné zaregistrovat. Pokus o překročení kapacity zadání."
+            {
+                tokio::time::sleep(REFRESH_DURATION).await;
+                continue;
+            } else {
+                eprintln!("alert: {alert}");
+            }
+        }
 
-    Ok(())
+        break;
+    }
 }
