@@ -5,12 +5,12 @@ const GUILD_ID_KENTUS_BLENTUS: u64 = 1200141239975153674;
 
 const KENTUS_CHANNEL_NAME: &str = "kentusovy-dristy";
 
-const REFRESH_DURATION: Duration = Duration::from_secs(30);
+const REFRESH_DURATION: Duration = Duration::from_secs(60);
 
 async fn get_registration_page() -> Option<String> {
     let client = reqwest::Client::new();
     let page = client
-        .get("https://www.vut.cz/studis/student.phtml?script_name=zadani_detail&apid=280933&zid=58330")
+        .get("https://www.vut.cz/studis/student.phtml?sn=registrace_vyucovani")
         .header(
             reqwest::header::COOKIE,
             include_str!("../session-cookie").trim(),
@@ -63,7 +63,7 @@ async fn get_tkey() -> (String, String) {
 
 async fn register_fitstagram() -> String {
     let (key, tkey) = get_tkey().await;
-    let payload = format!("script_name=zadani_registrace_act&apid=280933&zid=58330&s_key={key}&s_tkey={tkey}&prihlasit=Zaregistrovat+se+na+toto+zad%C3%A1n%C3%AD");
+    let payload = format!("script_name=zadani_registrace_act&apid=281143&zid=58233&s_key={key}&s_tkey={tkey}&prihlasit=Zaregistrovat+se+na+toto+zad%C3%A1n%C3%AD");
 
     let client = reqwest::Client::new();
     let request = client
@@ -148,7 +148,7 @@ impl EventHandler for DiscordHandler {
 
         loop {
             if let Some(alert) = get_autoreg_result().await {
-                if alert.as_str() == "Vybrané zadání nebylo možné zaregistrovat. Pokus o překročení kapacity zadání." {
+                if alert.as_str() == "Vybrané zadání nebylo možné zaregistrovat. V tomto časovém okamžiku není registrace zadání povolena." {
                     tokio::time::sleep(REFRESH_DURATION).await;
                     continue;
                 } else {
@@ -156,6 +156,7 @@ impl EventHandler for DiscordHandler {
                 }
             }
 
+            eprintln!("registration page returned something, check the logs");
             kentus_channel
                 .say(
                     &ctx.http,
