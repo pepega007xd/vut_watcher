@@ -5,7 +5,7 @@ const GUILD_ID_KENTUS_BLENTUS: u64 = 1200141239975153674;
 
 const KENTUS_CHANNEL_NAME: &str = "kentusovy-dristy";
 
-const REFRESH_DURATION: Duration = Duration::from_secs(60);
+const REFRESH_DURATION: Duration = Duration::from_secs(30);
 
 async fn get_registration_page() -> Option<String> {
     let client = reqwest::Client::new();
@@ -63,7 +63,9 @@ async fn get_tkey() -> (String, String) {
 
 async fn register_fitstagram() -> String {
     let (key, tkey) = get_tkey().await;
-    let payload = format!("script_name=zadani_registrace_act&apid=281143&zid=58233&s_key={key}&s_tkey={tkey}&prihlasit=Zaregistrovat+se+na+toto+zad%C3%A1n%C3%AD");
+    //  id="rj[292184][415177]-368823"
+
+    let payload = format!("script_name=registrace_vyucovani_act&typ_semestru_id=&kontrola_vsech_rj=0&zmena_semestru=0&s_key={key}&s_tkey={tkey}&f_rj%5B415177%5D=415177&f_rj%5B418027%5D=418027&f_rj%5B418314%5D=418314&f_rj%5B418401%5D=418401&f_rj%5B418425%5D=418425&rj%5B294267%5D%5B418425%5D=353682&rj%5B294083%5D%5B418027%5D=353431&rj%5B292184%5D%5B415176%5D=366230&rj%5B294253%5D%5B418401%5D=353679&rj%5B294216%5D%5B418314%5D=353659&rj%5B292184%5D%5B415177%5D=368823&potvrdit_volbu_vyucovani=Potvrdit+registraci+vyu%C4%8Dov%C3%A1n%C3%AD");
 
     let client = reqwest::Client::new();
     let request = client
@@ -148,7 +150,7 @@ impl EventHandler for DiscordHandler {
 
         loop {
             if let Some(alert) = get_autoreg_result().await {
-                if alert.as_str() == "Vybrané zadání nebylo možné zaregistrovat. V tomto časovém okamžiku není registrace zadání povolena." {
+                if alert.as_str() == "Vyučování nelze zaregistrovat (SOA - Obecná algebra - Cvičení). Vyučování nemáte v nabídce." {
                     tokio::time::sleep(REFRESH_DURATION).await;
                     continue;
                 } else {
